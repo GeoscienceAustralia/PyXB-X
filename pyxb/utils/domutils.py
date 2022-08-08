@@ -457,7 +457,7 @@ class BindingDOMSupport (object):
         ns = self.defaultNamespace()
         if ns is not None:
             self.addXMLNSDeclaration(self.document().documentElement, ns, '')
-        for (ns, pfx) in self.__referencedNamespacePrefixes:
+        for (ns, pfx) in sorted(self.__referencedNamespacePrefixes, key=lambda ns_pfx: ns_pfx[1]):
             self.addXMLNSDeclaration(self.document().documentElement, ns, pfx)
         return self.document()
 
